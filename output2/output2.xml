@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.13.5 on win32)" generated="2025-07-08T11:22:23.843397" rpa="false" schemaversion="5">
+<suite id="s1" name="Testsuit1" source="D:\project\advrobot\testsuit1.robot">
+<test id="s1-t1" name="Search Google and Verify Results TC1001" line="16">
+<kw name="Open Google">
+<kw name="Get Chrome Options With Binary" owner="ChromeHelper">
+<msg time="2025-07-08T11:22:24.063400" level="INFO">${chrome_options} = &lt;selenium.webdriver.chrome.options.Options object at 0x0000026A842A6BA0&gt;</msg>
+<var>${chrome_options}</var>
+<arg>D:\\chrome-for-testing\\138.0.7204.92\\chrome-win64\\chrome.exe</arg>
+<status status="PASS" start="2025-07-08T11:22:24.063216" elapsed="0.000216"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-07-08T11:22:24.063793" level="INFO">Opening browser 'headlesschrome' to base url 'https://www.google.com'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<arg>options=${chrome_options}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-07-08T11:22:24.063562" elapsed="3.591655"/>
+</kw>
+<kw name="Set Window Size" owner="SeleniumLibrary">
+<arg>1920</arg>
+<arg>1080</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" start="2025-07-08T11:22:27.655613" elapsed="0.039356"/>
+</kw>
+<status status="PASS" start="2025-07-08T11:22:24.062735" elapsed="3.632451"/>
+</kw>
+<kw name="Input Search Term">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-07-08T11:22:27.696684" level="INFO">Typing text 'robot' into text field 'name=q'.</msg>
+<arg>name=q</arg>
+<arg>${SEARCH_TERM1}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-08T11:22:27.696078" elapsed="0.070668"/>
+</kw>
+<status status="PASS" start="2025-07-08T11:22:27.695676" elapsed="0.071257"/>
+</kw>
+<kw name="Enter Google Search">
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2025-07-08T11:22:27.767898" level="INFO">Sending key(s) ('ENTER',) to name=q element.</msg>
+<msg time="2025-07-08T11:22:28.058374" level="INFO">Pressing special key ENTER to element.</msg>
+<msg time="2025-07-08T11:22:28.058440" level="INFO">Releasing special key ENTER.</msg>
+<arg>name=q</arg>
+<arg>ENTER</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2025-07-08T11:22:27.767607" elapsed="0.298220"/>
+</kw>
+<status status="PASS" start="2025-07-08T11:22:27.767337" elapsed="0.298588"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>${SEARCH_RESULT1}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2025-07-08T11:22:28.066141" elapsed="0.008282"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-07-08T11:22:33.075213" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-07-08T11:22:28.074636" elapsed="5.000860"/>
+</kw>
+<kw name="Verify Search Results">
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2025-07-08T11:22:33.500288" level="INFO">Current page contains text 'Robot'.</msg>
+<arg>${SEARCH_RESULT1}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2025-07-08T11:22:33.076529" elapsed="0.423831"/>
+</kw>
+<status status="PASS" start="2025-07-08T11:22:33.075993" elapsed="0.424432"/>
+</kw>
+<kw name="Capture Page Screenshot With Name">
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2025-07-08T11:22:33.501043" level="INFO">${timestamp} = 20250708_112233</msg>
+<var>${timestamp}</var>
+<arg>result_format=%Y%m%d_%H%M%S</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2025-07-08T11:22:33.500870" elapsed="0.000194"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-07-08T11:22:33.501252" level="INFO">${filename} = TC1001_20250708_112233.png</msg>
+<var>${filename}</var>
+<arg>${test_case_name}_${timestamp}.png</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-07-08T11:22:33.501138" elapsed="0.000131"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-07-08T11:22:33.501406" level="INFO">Capturing screenshot: TC1001_20250708_112233.png</msg>
+<arg>Capturing screenshot: ${filename}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-07-08T11:22:33.501331" elapsed="0.000099"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-07-08T11:22:33.670780" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="TC1001_20250708_112233.png"&gt;&lt;img src="TC1001_20250708_112233.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>${filename}</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-07-08T11:22:33.501489" elapsed="0.169432"/>
+</kw>
+<arg>TC1001</arg>
+<status status="PASS" start="2025-07-08T11:22:33.500679" elapsed="0.170350"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-07-08T11:22:33.671276" elapsed="2.232393"/>
+</kw>
+<doc>Test case to search Google and verify results</doc>
+<tag>search</tag>
+<status status="PASS" start="2025-07-08T11:22:24.062076" elapsed="11.841842"/>
+</test>
+<test id="s1-t2" name="Search Google and Verify Results TC1002" line="29">
+<kw name="Open Google">
+<kw name="Get Chrome Options With Binary" owner="ChromeHelper">
+<msg time="2025-07-08T11:22:35.905144" level="INFO">${chrome_options} = &lt;selenium.webdriver.chrome.options.Options object at 0x0000026A84324690&gt;</msg>
+<var>${chrome_options}</var>
+<arg>D:\\chrome-for-testing\\138.0.7204.92\\chrome-win64\\chrome.exe</arg>
+<status status="PASS" start="2025-07-08T11:22:35.904983" elapsed="0.000184"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-07-08T11:22:35.905464" level="INFO">Opening browser 'headlesschrome' to base url 'https://www.google.com'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<arg>options=${chrome_options}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-07-08T11:22:35.905290" elapsed="2.753871"/>
+</kw>
+<kw name="Set Window Size" owner="SeleniumLibrary">
+<arg>1920</arg>
+<arg>1080</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" start="2025-07-08T11:22:38.659603" elapsed="0.030714"/>
+</kw>
+<status status="PASS" start="2025-07-08T11:22:35.904772" elapsed="2.785675"/>
+</kw>
+<kw name="Input Search Term 2">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-07-08T11:22:38.691223" level="INFO">Typing text 'java' into text field 'name=q'.</msg>
+<arg>name=q</arg>
+<arg>${SEARCH_TERM2}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-08T11:22:38.691008" elapsed="0.077598"/>
+</kw>
+<status status="PASS" start="2025-07-08T11:22:38.690749" elapsed="0.077953"/>
+</kw>
+<kw name="Enter Google Search">
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2025-07-08T11:22:38.769395" level="INFO">Sending key(s) ('ENTER',) to name=q element.</msg>
+<msg time="2025-07-08T11:22:39.039033" level="INFO">Pressing special key ENTER to element.</msg>
+<msg time="2025-07-08T11:22:39.039094" level="INFO">Releasing special key ENTER.</msg>
+<arg>name=q</arg>
+<arg>ENTER</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2025-07-08T11:22:38.769138" elapsed="0.277860"/>
+</kw>
+<status status="PASS" start="2025-07-08T11:22:38.768930" elapsed="0.278160"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>${SEARCH_RESULT1}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2025-07-08T11:22:39.047279" elapsed="0.008729"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-07-08T11:22:44.056887" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-07-08T11:22:39.056297" elapsed="5.000840"/>
+</kw>
+<kw name="Verify Search Results 2">
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2025-07-08T11:22:45.078087" level="INFO">Current page contains text 'Java'.</msg>
+<arg>${SEARCH_RESULT2}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2025-07-08T11:22:44.058394" elapsed="1.019892"/>
+</kw>
+<status status="PASS" start="2025-07-08T11:22:44.057827" elapsed="1.020633"/>
+</kw>
+<kw name="Capture Page Screenshot With Name">
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2025-07-08T11:22:45.079331" level="INFO">${timestamp} = 20250708_112245</msg>
+<var>${timestamp}</var>
+<arg>result_format=%Y%m%d_%H%M%S</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2025-07-08T11:22:45.079155" elapsed="0.000200"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-07-08T11:22:45.079559" level="INFO">${filename} = TC1002_20250708_112245.png</msg>
+<var>${filename}</var>
+<arg>${test_case_name}_${timestamp}.png</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-07-08T11:22:45.079441" elapsed="0.000136"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-07-08T11:22:45.079728" level="INFO">Capturing screenshot: TC1002_20250708_112245.png</msg>
+<arg>Capturing screenshot: ${filename}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-07-08T11:22:45.079648" elapsed="0.000106"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-07-08T11:22:45.215771" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="TC1002_20250708_112245.png"&gt;&lt;img src="TC1002_20250708_112245.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>${filename}</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-07-08T11:22:45.079828" elapsed="0.136048"/>
+</kw>
+<arg>TC1002</arg>
+<status status="PASS" start="2025-07-08T11:22:45.078855" elapsed="0.137122"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-07-08T11:22:45.216226" elapsed="2.235356"/>
+</kw>
+<doc>Test case to search Google and verify results</doc>
+<tag>search</tag>
+<status status="PASS" start="2025-07-08T11:22:35.904383" elapsed="11.547461"/>
+</test>
+<status status="PASS" start="2025-07-08T11:22:23.844691" elapsed="23.607765"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="2" fail="0" skip="0">search</stat>
+</tag>
+<suite>
+<stat name="Testsuit1" id="s1" pass="2" fail="0" skip="0">Testsuit1</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
