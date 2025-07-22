@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.13.5 on win32)" generated="2025-07-22T11:51:42.873097" rpa="false" schemaversion="5">
+<suite id="s1" name="Google Test" source="D:\project\advrobot\test\google_test.robot">
+<test id="s1-t1" name="Open Google With Remote Selenium Grid" line="10">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-07-22T11:51:43.052099" level="INFO">Opening browser 'chrome' to base url 'https://www.google.com' through remote server at 'http://localhost:4444/wd/hub'.</msg>
+<arg>${TARGET_URL}</arg>
+<arg>${BROWSER}</arg>
+<arg>remote_url=${REMOTE_URL}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-07-22T11:51:43.051859" elapsed="2.018781"/>
+</kw>
+<kw name="Title Should Be" owner="SeleniumLibrary">
+<msg time="2025-07-22T11:51:45.078444" level="INFO">Page title is 'Google'.</msg>
+<arg>Google</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<status status="PASS" start="2025-07-22T11:51:45.070986" elapsed="0.007546"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-07-22T11:51:45.078784" elapsed="0.099329"/>
+</kw>
+<status status="PASS" start="2025-07-22T11:51:43.051232" elapsed="2.127378"/>
+</test>
+<status status="PASS" start="2025-07-22T11:51:42.874147" elapsed="2.305155"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Google Test" id="s1" pass="1" fail="0" skip="0">Google Test</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
